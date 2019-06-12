@@ -26,9 +26,20 @@ describe('thermostat', function() {
   it("can turn powersave off", function() {
     var thermostat = new Thermostat
     thermostat.powersaveOff()
-    expect(thermostat.powersave) .toEqual(35)
+    expect(thermostat.powersave) .toEqual(32)
   })
 
+  it("can turn powersave on", function() {
+    var thermostat = new Thermostat
+    thermostat.powersaveOn()
+    expect(thermostat.powersave) .toEqual(25)
+  })
+
+  it("can reset temperature to 20", function() {
+    var thermostat = new Thermostat
+    thermostat.reset();
+    expect(thermostat.temperature) .toEqual(20)
+  })
   // it("should land when you ask it to land", function() {
   //   var plane = new Plane
   //   plane.fly()
