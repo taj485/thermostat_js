@@ -23,6 +23,12 @@ describe('thermostat', function() {
     expect(function () { thermostat.down() }).toThrow('Minimum temperature is 10');
   })
 
+  it("can turn powersave off", function() {
+    var thermostat = new Thermostat
+    thermostat.powersaveOff()
+    expect(thermostat.powersave) .toEqual(35)
+  })
+
   // it("should land when you ask it to land", function() {
   //   var plane = new Plane
   //   plane.fly()
