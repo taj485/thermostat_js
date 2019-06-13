@@ -14,13 +14,21 @@ Thermostat.prototype.down = function(number) {
   if (this.temperature <= this.minimumTemp) {this.temperature = this.minimumTemp};
 }
 
-Thermostat.prototype.powersaveOff = function() {
-  this.maxTemp = 32;
-}
+// Thermostat.prototype.powersaveOff = function() {
+//   this.maxTemp = 32;
+// }
 
-Thermostat.prototype.powersaveOn = function() {
-  this.powersave = 25;
+Thermostat.prototype.powersave = function() {
+  if (this.maxTemp === 25) {
+    this.maxTemp = 32;
+  } else {
+    this.maxTemp = 25;
+  }
 }
+//
+// Thermostat.prototype.powersaveOn = function() {
+//   this.powersave = 25;
+// }
 
 Thermostat.prototype.reset = function() {
   this.temperature = 20;
@@ -31,5 +39,5 @@ Thermostat.prototype.showUsage = function() {
      return 'low-usage';
   } else if (this.temperature < 25) {
      return 'medium-usage';
-  };
+  }
 }

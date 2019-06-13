@@ -19,18 +19,13 @@ describe('Thermostat', function() {
     expect(thermostat.temperature).toEqual(10);
   })
 
-  it("can turn powersave off", function() {
-    thermostat.powersaveOff()
-    expect(thermostat.maxTemp).toEqual(32)
-  })
-
-  it("can only go to max temp set by powersave turned on", function() {
+  it("can only go to max 25 temp when powersave is turned on", function() {
     thermostat.up(15)
     expect(thermostat.temperature).toEqual(25);
   })
 
-  it("can only go to max temp set by powersave turned off", function() {
-    thermostat.powersaveOff()
+  it("can only go to max temp  32 when powersave is turned off", function() {
+    thermostat.powersave()
     thermostat.up(15)
     expect(thermostat.temperature).toEqual(32);
   })
