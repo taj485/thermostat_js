@@ -1,19 +1,21 @@
-function Thermostat(powersave) {
-  this.temperature = 10
-  this.powersave = 25
+function Thermostat() {
+  this.temperature = 20
+  this.maxTemp = 25
+  this.minimumTemp = 10
 };
 
-Thermostat.prototype.up = function() {
-  return this.temperature += 1;
+Thermostat.prototype.up = function(number) {
+  this.temperature += number;
+  if (this.temperature > this.maxTemp) {this.temperature = this.maxTemp};
 };
 
-Thermostat.prototype.down = function() {
-  if (this.temperature <= 10) throw("Minimum temperature is 10");
-  return this.temperature -= 1;
+Thermostat.prototype.down = function(number) {
+  this.temperature -= number;
+  if (this.temperature <= this.minimumTemp) {this.temperature = this.minimumTemp};
 }
 
 Thermostat.prototype.powersaveOff = function() {
-  this.powersave = 32;
+  this.maxTemp = 32;
 }
 
 Thermostat.prototype.powersaveOn = function() {
@@ -25,9 +27,9 @@ Thermostat.prototype.reset = function() {
 }
 
 Thermostat.prototype.showUsage = function() {
-  if (thermostat.temperature < 18) {
+  if (this.temperature < 18) {
      return 'low-usage';
-  } else if (thermostat.temperature < 25) {
+  } else if (this.temperature < 25) {
      return 'medium-usage';
   };
 }

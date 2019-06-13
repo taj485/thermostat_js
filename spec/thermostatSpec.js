@@ -1,53 +1,53 @@
-describe('thermostat', function() {
-
+describe('Thermostat', function() {
+    var thermostat;
   beforeEach(function() {
-   thermostat = new Thermostat();
+    thermostat = new Thermostat();
   });
 
   it("can increase the temperature", function() {
-    thermostat.up()
-    expect(thermostat.temperature). toEqual(11);
+    thermostat.up(1)
+    expect(thermostat.temperature).toEqual(21);
   })
 
   it("can decrease the temperature", function() {
-    thermostat.up()
-    thermostat.down()
-    expect(thermostat.temperature). toEqual(10);
-    console.log(thermostat.temperature, "the temp");
+    thermostat.down(1)
+    expect(thermostat.temperature).toEqual(19);
   })
 
   it("should have a minimum temperature of 10", function() {
-    expect(thermostat.temperature). toEqual(10);
-  })
-
-  it("will throw an error if temperature descreases below 10", function() {
-    expect(function () { thermostat.down() }).toThrow('Minimum temperature is 10');
+    thermostat.down(15)
+    expect(thermostat.temperature).toEqual(10);
   })
 
   it("can turn powersave off", function() {
     thermostat.powersaveOff()
-    expect(thermostat.powersave) .toEqual(32)
+    expect(thermostat.maxTemp).toEqual(32)
   })
 
-  it("can turn powersave on", function() {
-    thermostat.powersaveOn()
-    expect(thermostat.powersave) .toEqual(25)
+  it("can only go to max temp set by powersave turned on", function() {
+    thermostat.up(15)
+    expect(thermostat.temperature).toEqual(25);
   })
+
+  it("can only go to max temp set by powersave turned off", function() {
+    thermostat.powersaveOff()
+    thermostat.up(15)
+    expect(thermostat.temperature).toEqual(32);
+  })
+
 
   it("can reset temperature to 20", function() {
     thermostat.reset();
-    expect(thermostat.temperature) .toEqual(20)
+    expect(thermostat.temperature).toEqual(20)
   })
 
   it("can show the current energy is low usage", function () {
-    expect(thermostat.showUsage()) . toEqual("low-usage")
+    thermostat.down(5);
+    expect(thermostat.showUsage()).toEqual("low-usage")
   })
 
   it("can show the current energy is medium-usage", function () {
-    thermostat.temperature = 23;
-    console.log(thermostat.temperature = 23);
-    expect(thermostat.showUsage()) .toEqual("medium-usage")
+    thermostat.up(1);
+    expect(thermostat.showUsage()).toEqual("medium-usage")
   })
-
-// < 18 is low-usage, < 25 is medium-usage, anything else is high-usage.
 });
