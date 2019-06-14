@@ -26,47 +26,56 @@
   <body>
 
     <div class="row">
+
       <div class="col-md-4 displayContainer">
+        <!-- temperature display -->
         <p>Temperature</p>
+
         <div class="row">
-          <div class="col-md-12 tempDisplay">
+          <div class="col-md-7 tempDisplay">
             <p>Display</p>
             <p class='temperature'>24</p>
           </div>
+
+          <!-- up down buttons -->
+          <div class="col-md-5 upAndD">
+            <div class="row">
+              <div class ="up">&#x25B2;</div>
+            </div>
+            <div class="row">
+              <div class ="down">&#x25BC;</div>
+            </div>
+          </div>
+
         </div>
+
         <div class="row">
+          <!-- powersave -->
           <div class="col-md-6 powersave">
             <button class ="powersave" type="button">Powersave ON/OFF</button>
-            <p class ="powersaveDisplay"> Powersave is turned on </P>
+            <p class ="powersaveDisplay"> powersave set to: 25 </P>
           </div>
-          <div class="col-md-7_eneryUsage">
-            <button class ="energyUsage" type="button">Energy Usage</button>
-            <p> usage is 1234 </P>
-          </div>
-        </div>
-        <div class="row">
+
+          <!-- Reset -->
           <div class="col-md-6 reset">
             <button class ="Reset" type="button">Reset</button>
           </div>
         </div>
-      </div>
-      <!-- up down buttons -->
-      <div class="col-md-3 upAndD">
+
+        <!-- Energy Usage -->
         <div class="row">
-          <div class ="up">&#x25B2;</div>
+          <div class="col-md-11 eneryUsage">
+            <p class ="power-usage" style="background-color: lightgreen;">Energy Usage: </P>
+          </div>
         </div>
-        <div class="row">
-          <div class ="down">&#x25BC;</div>
-        </div>
+
       </div>
     </div>
-    <a href="http://jquery.com/">jQuery</a>
 
     <!--  Jquery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="thermostatJquery.js"></script>
 
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
